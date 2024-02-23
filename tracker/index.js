@@ -72,7 +72,7 @@ const tracker = async (client)=>{
                 var chunkStatus = await chunkRequest(finalChunkDownloadUrl, client);
                 console.log({chunkStatus});
                 if (chunkStatus == 200) aliveChunks += 1;
-                return chunkStatus = null;
+                return;
             });
             console.log({aliveChunks});
 
