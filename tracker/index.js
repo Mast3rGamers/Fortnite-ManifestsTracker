@@ -52,7 +52,7 @@ const tracker = async (client)=>{
                 resolve();
             }
 
-            var finalManifestDownloadUrl = `${baseManifestDownloadUrl}${currentManifestName}`;
+            const finalManifestDownloadUrl = `${baseManifestDownloadUrl}${currentManifestName}`;
             const manifest = await request({
                 url: `${finalManifestDownloadUrl}`,
                 method: "GET",
@@ -82,7 +82,7 @@ const tracker = async (client)=>{
 
                 const embed = new discord.EmbedBuilder({
                     title: `ALL THE CHUNKS FOR ${currentBuildName} ARE UP`,
-                    description: `All the chunks for the manifest are up.\nManifest: ${currentManifestName}\n[**Download Manifest**](${baseManifestDownloadUrl}${currentManifestName})`,
+                    description: `All the chunks for the manifest are up.\nManifest: ${currentManifestName}\n[**Download Manifest**](${finalManifestDownloadUrl})`,
                     color: 0x93FA00
                 })
                 .addFields(
