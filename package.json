@@ -1,0 +1,19 @@
+{
+  "name": "fnmanifests-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.4",
+    "axios": "^1.4.0",
+    "discord.js": "^14.11.0",
+    "long": "^5.2.3",
+    "request-promise": "^4.2.6"
+  }
+}
