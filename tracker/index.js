@@ -61,9 +61,9 @@ const tracker = async (client)=>{
 
             var aliveChunks = 0;
 
-            const currentTotalChunks = Object.keys(manifest.ChunkHashList).length;
-            console.log({currentTotalChunks});
             const chunkGUIDs = Object.keys(manifest.ChunkHashList);
+            const currentTotalChunks = chunkGUIDs.length;
+            console.log({currentTotalChunks});
 
             await async.forEachLimit(chunkGUIDs, MAX_CONCURRENT_REQUESTS, async (chunkGUID) => {
                 const unpackedHash = utils.returnFinalHash(manifest.ChunkHashList[chunkGUID]);
