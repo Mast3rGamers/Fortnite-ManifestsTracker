@@ -8,9 +8,11 @@ const utils = require("../utils");
 const manifests = require("./manifests.json");
 
 const aliveManifestsMap = new Map();
-const baseManifestDownloadUrl = "https://raw.githubusercontent.com/polynite/fn-releases/master/manifests/";
-var currentManifestIndex = 0;
 const chunksMap = new Map();
+
+const baseManifestDownloadUrl = "https://raw.githubusercontent.com/polynite/fn-releases/master/manifests/";
+
+var currentManifestIndex = 0;
 const MAX_CONCURRENT_REQUESTS = 4;
 
 const chunkRequest = async (url, client) => {
