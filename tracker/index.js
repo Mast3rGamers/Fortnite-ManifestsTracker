@@ -49,7 +49,7 @@ const tracker = async (client)=>{
             client.send({content: `Checking ${currentBuildName} manifest chunks...`});
             if (aliveManifestsMap.get(currentManifestName)) {
                 client.send({content: "Skipping check because build is fully alive."});
-                resolve();
+                return resolve();
             }
 
             const finalManifestDownloadUrl = `${baseManifestDownloadUrl}${currentManifestName}`;
@@ -72,7 +72,6 @@ const tracker = async (client)=>{
                 var chunkStatus = await chunkRequest(finalChunkDownloadUrl, client);
                 console.log({chunkStatus});
                 if (chunkStatus == 200) aliveChunks += 1;
-                return;
             });
             console.log({aliveChunks});
 
@@ -100,7 +99,7 @@ const tracker = async (client)=>{
                 chunksMap.set(currentBuildName, aliveChunks);
                 aliveManifestsMap.set(currentManifestName, "alive");
 
-                resolve();
+                return resolve();
             } else if (prevAliveChunks !== aliveChunks) {
                 console.log("ALIVE CHUNKS DIFFERENCE");
 
@@ -121,7 +120,7 @@ const tracker = async (client)=>{
 
                 chunksMap.set(currentBuildName, aliveChunks);
 
-                resolve();
+                return resolve();
             }
 
             chunksMap.set(currentBuildName, aliveChunks);
